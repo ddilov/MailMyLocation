@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Геолокация</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta charset="windows-1251">
+		<link href="styles/main.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" charset="windows-1251" src="cordova.js"></script>
+
+		<script type="text/javascript" charset="windows-1251" src="scripts/main.js"></script>
+	</head>
+<BODY bgColor="#3399ff" text="#ffffff" background="bg.jpg" link="ffffff" alink="ffffff" vlink="ffffff">
+		<header class="header">
+<center><h1>Геолокация</h1></center>
+		</header>
+		
+<center><br>
+<a id="email" href="mailto:?subject=My%20Location&body=" >Изпрати Email с GPS координати</a>
+
+<section id="wrapper">
+    <header>
+      <h2>Геолокация</h2>
+    </header>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <article>
+      <p>Намиране на геолокация: <span id="status">checking...</span></p>
+    </article>
+<script>
+function success(position) {
+  var s = document.querySelector('#status');
+  s.innerHTML = "Намерен!";
+  s.className = 'success';
+  
+  var mapcanvas = document.createElement('div');
+  mapcanvas.id = 'mapcanvas';
+  mapcanvas.style.height = '400px';
+  mapcanvas.style.width = '560px';
+    
+  document.querySelector('article').appendChild(mapcanvas);
+  
+
+var em = document.getElementById('email');
+var attr = em.getAttribute('href');
+
+attr = attr + escape('http://maps.google.com/?q='+position.coords.latitude+','+position.coords.longitude);
+
+em.setAttribute('href', attr);
+ 
+
+  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var myOptions = {
+    zoom: 15,
+    center: latlng,
+    mapTypeControl: false,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  
+  var marker = new google.maps.Marker({
+      position: latlng, 
+      map: map, 
+      title:"Ти си тук"
+  });
+}
+
+function error(msg) {
+  var s = document.querySelector('#status');
+  s.innerHTML = typeof msg == 'string' ? msg : "failed";
+  s.className = 'fail';
+}
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  error('not supported');
+}
+
+</script>
+</section>
+<hr />
+</center>
+		<footer class="footer">
+			<div><font color="#ffffff" face="Comic Sans MS" size="1">
+Клуб: Мобилни приложения</font></div>
+		</footer>
+	</body>
+</html>

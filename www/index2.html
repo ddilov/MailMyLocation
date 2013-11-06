@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Калколатор от Иво</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta charset="windows-1251">
+		<link href="styles/main.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" charset="windows-1251" src="cordova.js"></script>
+
+		<script type="text/javascript" charset="windows-1251" src="scripts/main.js"></script>
+	</head>
+<BODY bgColor="#3399ff" text="#ffffff" background="bg.jpg" link="ffffff" alink="ffffff" vlink="ffffff">
+		<header class="header">
+<center><h1>Калкулатор - 2013</h1></center>
+		</header>
+		
+<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0"> 
+<tr><td valign=middle align=center width="100%" height="100%"> 
+<P><font size=6><b>Калкулатор</b></font><br>
+<font size=1>(<b>СТАНДАРТЕН</b>)</font><br>
+<font size=3><A href="index.html">към Научен</A></font>
+<FORM action="" method=post name=form>
+	<input name=x1 size=23><br>
+	<input type=hidden name=n value="0">
+	<input type=hidden name=znak>
+	<input type=hidden name=b value="0">
+	<input type=hidden name=br value="0">
+	<table border="0" cellspacing="0"  cellpadding="0">
+		<tr align="center">
+			<td><input name=Button7 onclick=pribavi(this.form,"7") type=button value=" 7 "></td>
+			<td><input name=Button8 onclick=pribavi(this.form,"8") type=button value=" 8 "></td>
+			<td><input name=Button9 onclick=pribavi(this.form,"9") type=button value=" 9 "></td>
+ 			<td><INPUT name=Button_4 onclick=znaci(this.form,"/") type=button value="/"></td>
+			<td><input name=Buttonclr type=button onclick=clr(this.form) value="  C  "></td>
+		</tr>
+		<tr align="center">
+			<td><input name=Button4 onclick=pribavi(this.form,"4") type=button value=" 4 "></td>
+			<td><input name=Button5 onclick=pribavi(this.form,"5") type=button value=" 5 "></td>
+			<td><input name=Button6 onclick=pribavi(this.form,"6") type=button value=" 6 "></td>
+ 			<td><INPUT name=Button_3 onclick=znaci(this.form,"*") type=button value="*"></td>
+ 			<td><INPUT name=Button_5 onclick=znaci(this.form,"%") type=button value=" % "></td>
+		</tr>
+		<tr align="center">
+			<td><input name=Button1 onclick=pribavi(this.form,"1") type=button value=" 1 "></td>
+			<td><input name=Button2 onclick=pribavi(this.form,"2") type=button value=" 2 "></td>
+			<td><input name=Button3 onclick=pribavi(this.form,"3") type=button value=" 3 "></td>
+ 			<td><INPUT name=Button_2 onclick=znaci(this.form,"-") type=button value="-"></td>
+ 			<td><INPUT name=Buttonedx onclick=edx(this.form) type=button value="1/x"></td>
+		</tr>
+		<tr align="center">
+			<td><input name=Button0 onclick=pribavi(this.form,"0") type=button value=" 0 "></td>
+			<td><input name=Buttonpm onclick=pm(this.form) type=button value="+/-"></td>
+			<td><input name=Button. onclick=pribavi(this.form,".") type=button value=" . "></td>
+ 			<td><INPUT name=Button_1 onclick=znaci(this.form,"+") type=button value="+"></td>
+ 			<td><INPUT name=Button= onclick=ravno(this.form) type=button value="  =  "></td>
+		</tr>
+	</table>
+	<font size=2>Създадено от Иво Дилов<br>
+	1 юли 2010 г.</font>
+</td></tr></table>           
+
+		<footer class="footer">
+			<div><font color="#ffffff" face="Comic Sans MS" size="1">
+СМГ: Мобилни приложения</font></div>
+		</footer>
+	</body>
+</html>
